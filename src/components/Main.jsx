@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { decrement, increment, reset } from './redux/action/actions';
+import { DefineCounter } from '../redux/action/actions';
 
 const Main = () => {
   const count = useSelector((state) => state.counter);
@@ -11,19 +11,19 @@ const Main = () => {
       <div className="flex gap-2">
         <button
           className="p-2 rounded-lg text-white bg-blue-800 hover:bg-blue-gray-400"
-          onClick={() => dispatch(increment())}
+          onClick={() => dispatch(DefineCounter("INCREMENT"))}
         >
           Increment
         </button>
         <button
           className="p-2 rounded-lg text-white bg-blue-800 hover:bg-blue-gray-400"
-          onClick={() => dispatch(decrement())}
+          onClick={() => dispatch(DefineCounter("DECREMENT"))}
         >
           Decrement
         </button>
         <button
           className="p-2 rounded-lg text-white bg-blue-800 hover:bg-blue-gray-400"
-          onClick={() => dispatch(reset())}
+          onClick={() => dispatch(DefineCounter("RESET"))}
         >
           Reset
         </button>
