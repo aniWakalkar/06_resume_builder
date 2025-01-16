@@ -8,6 +8,10 @@ function Navbar() {
         {
             tabName: "Home",
             path: "/06_resume_builder",
+        },
+        {
+            tabName: "Counter",
+            path: "/06_resume_builder/counter",
         }
     ];
 
@@ -15,7 +19,7 @@ function Navbar() {
   return (
     <>
         <nav
-        className="block w-full max-w-screen-xl px-6 py-3 mx-auto text-white bg-white border shadow-md rounded-xl border-white/80 bg-opacity-80 backdrop-blur-2xl backdrop-saturate-200">
+        className="mx-2 my-1 px-6 py-2 text-white bg-white">
         <div className="flex items-center justify-around text-blue-gray-900">
             <Link
                 to="/"
@@ -33,14 +37,6 @@ function Navbar() {
                     </li>
                 ))}   
             </ul>
-            {/* <p className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
-                <Link
-                    to="/logout"
-                    className="flex items-center transition-colors hover:text-blue-500"
-                >
-                    Logout 
-                </Link>
-            </p> */}
         </div>
         </nav>
     </>

@@ -1,32 +1,26 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { DefineCounter } from '../redux/action/actions';
+import React from 'react';
+import { useNavigate } from "react-router-dom";
+
+import template_1 from "../images/template_1.png"
+import template_3 from "../images/template_3.webp"
 
 const Main = () => {
-  const count = useSelector((state) => state.counter);
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
-    <div className="container h-screen flex flex-col items-center justify-center mx-auto px-5 py-10 border border-red-100">
-      <h1 className="text-xl font-bold mb-4">Counter: {count}</h1>
-      <div className="flex gap-2">
-        <button
-          className="p-2 rounded-lg text-white bg-blue-800 hover:bg-blue-gray-400"
-          onClick={() => dispatch(DefineCounter("INCREMENT"))}
-        >
-          Increment
-        </button>
-        <button
-          className="p-2 rounded-lg text-white bg-blue-800 hover:bg-blue-gray-400"
-          onClick={() => dispatch(DefineCounter("DECREMENT"))}
-        >
-          Decrement
-        </button>
-        <button
-          className="p-2 rounded-lg text-white bg-blue-800 hover:bg-blue-gray-400"
-          onClick={() => dispatch(DefineCounter("RESET"))}
-        >
-          Reset
-        </button>
+    <div className='h-[100%] p-2 mx-2 my-2 bg-white'>
+      <h4 className='font-bold'>Select The Template</h4>
+      <div className="img-container flex items-center justify-evenly">
+        <div className="img1 w-[350px] h-[100%] border border-black">
+          <img src={template_1} alt="cv-template" 
+            onClick={() => { navigate("/06_resume_builder/editor"); }}
+          />
+        </div>
+        <div className="img3 w-[350px] h-[100%] border border-black">
+          <img src={template_3} alt="cv-template" 
+            onClick={() => {navigate("/06_resume_builder/editor"); }}
+          />
+        </div>
       </div>
     </div>
   );
