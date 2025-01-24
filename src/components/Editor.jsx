@@ -28,7 +28,7 @@ const Editor = () => {
   useEffect(() => {
     console.log('Skills updated:', skills);
   }, [skills]);
-  
+
   return (
     <div className='font-serif h-[100%] p-2 mx-2 my-2 bg-white border shadow'>
       {/* <h4 className='font-bold text-xl mb-4 ml-10 mt-5'>WELCOME TO EDITOR</h4> */}
@@ -183,12 +183,14 @@ const Editor = () => {
         {/* Submit Button */}
         <div className="flex flex-wrap gap-4">
           <button
+            type="button"
             className="bg-blue-500 text-white font-medium py-2 px-4 rounded hover:bg-blue-600"
           >
             Save
           </button>
 
           <button
+            type="button"
             className="bg-blue-500 text-white font-medium py-2 px-4 rounded hover:bg-blue-600"
           >
             Next
