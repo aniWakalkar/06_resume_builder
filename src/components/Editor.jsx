@@ -12,6 +12,13 @@ const Editor = () => {
   const [ExperienceDetails, setExperienceDetails] = useState({});
   const [Experience, setExperience] = useState([]); // Default border color
 
+  const [EducationDetails, setEducationDetails] = useState({});
+  const [Education, setEducation] = useState([]); // Default border color
+
+  const [ProjectDetails, setProjectDetails] = useState({});
+  const [Project, setProject] = useState([]); // Default border color
+
+  
   const personalDetailsMethod = (e) => {
     const { name, value } = e.target; 
     setPersonalDetails((prevDetails) => ({
@@ -43,9 +50,33 @@ const Editor = () => {
     }));
   };
 
+  const addEducation = () => {
+    setEducation((prev) => [...prev, EducationDetails]); // Add the current Education to the array
+  };
+
+  const personalEducationsMethod = (e) => {
+    const { name, value } = e.target; 
+    setEducationDetails((prevEducations) => ({
+      ...prevEducations, 
+      [name]: value, 
+    }));
+  };
+
+  const addProject = () => {
+    setProject((prev) => [...prev, ProjectDetails]); // Add the current Project to the array
+  };
+
+  const personalProjectsMethod = (e) => {
+    const { name, value } = e.target; 
+    setProjectDetails((prevProjects) => ({
+      ...prevProjects, 
+      [name]: value, 
+    }));
+  };
+
   useEffect(() => {
-    console.log('Skills updated:', Experience);
-  }, [skills, Experience, Details]);
+    console.log('Skills updated:', Project);
+  }, [skills, Experience, Details, Education, Project]);
 
   return (
     <div className='font-serif h-[100%] p-2 mx-2 my-2 bg-white border shadow'>
@@ -382,6 +413,172 @@ const Editor = () => {
           <button
               type='button'
               onClick={addExperience} // Add the skill to the array
+              className="bg-blue-500 text-white font-medium py-2 px-4 rounded hover:bg-blue-600"
+            >
+            Add
+          </button>
+
+          <button
+            type="button"
+            className="bg-blue-500 text-white font-medium py-2 px-4 rounded hover:bg-blue-600"
+          >
+            Next
+          </button>
+        </div>
+      </form>
+            
+      <hr className='my-10'/>
+
+      <h4 className='font-bold text-xl mb-4 ml-10 mt-10'>EDUCATION DETAILS</h4>
+      <form className="flex flex-col gap-6 px-10 py-5">
+        {/* Name, Middle Name, PhoneNumber and Surname in One Line */}
+          <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col flex-1">
+              <label className="font-medium" htmlFor="name">College Name</label>
+              <input
+                name="College"
+                id="College"
+                type="text"
+                className="border rounded p-2"
+                placeholder="Enter your College Name"
+                value={EducationDetails.College}
+                onChange={personalEducationsMethod}
+                style={{ border: `1px solid ${borderColor}` }}
+                onFocus={()=>{setBorderColor('blue')}} 
+                onBlur={()=>{setBorderColor('black')}} 
+                required
+              />
+            </div>
+            <div className="flex flex-col flex-1">
+              <label className="font-medium" htmlFor="name">Degree</label>
+              <input
+                name="Degree"
+                id="Degree"
+                type="text"
+                className="border rounded p-2"
+                placeholder="Enter your Degree"
+                value={EducationDetails.Degree}
+                onChange={personalEducationsMethod}
+                style={{ border: `1px solid ${borderColor}` }}
+                onFocus={()=>{setBorderColor('blue')}} 
+                onBlur={()=>{setBorderColor('black')}} 
+                required
+              />
+            </div>
+            <div className="flex flex-col flex-1">
+              <label className="font-medium" htmlFor="name">Joining Date</label>
+              <input
+                name="Joining"
+                id="Joining"
+                type="text"
+                className="border rounded p-2"
+                placeholder="Enter your Joining"
+                value={EducationDetails.Joining}
+                onChange={personalEducationsMethod}
+                style={{ border: `1px solid ${borderColor}` }}
+                onFocus={()=>{setBorderColor('blue')}} 
+                onBlur={()=>{setBorderColor('black')}} 
+                required
+              />
+            </div>
+            <div className="flex flex-col flex-1">
+              <label className="font-medium" htmlFor="name">Relieving Date</label>
+              <input
+                name="Relieving"
+                id="Relieving"
+                type="text"
+                className="border rounded p-2"
+                placeholder="Enter your Relieving"
+                value={EducationDetails.Relieving}
+                onChange={personalEducationsMethod}
+                style={{ border: `1px solid ${borderColor}` }}
+                onFocus={()=>{setBorderColor('blue')}} 
+                onBlur={()=>{setBorderColor('black')}} 
+                required
+              />
+            </div>
+          </div>
+
+          <div className="w-full mt-4">
+            <h3 className="font-medium">Education:</h3>
+            <ul className="list-disc pl-6">
+              {Education.map((Education, index) => (
+                <li key={index}>{Education.College} -- {Education.Degree}</li> // Display the skills
+              ))}
+            </ul>
+          </div>
+
+        {/* Submit Button */}
+        <div className="flex flex-wrap gap-4">
+          <button
+              type='button'
+              onClick={addEducation} // Add the skill to the array
+              className="bg-blue-500 text-white font-medium py-2 px-4 rounded hover:bg-blue-600"
+            >
+            Add
+          </button>
+
+          <button
+            type="button"
+            className="bg-blue-500 text-white font-medium py-2 px-4 rounded hover:bg-blue-600"
+          >
+            Next
+          </button>
+        </div>
+      </form>
+                  
+      <hr className='my-10'/>
+
+      <h4 className='font-bold text-xl mb-4 ml-10 mt-10'>PROJECT DETAILS</h4>
+      <form className="flex flex-col gap-6 px-10 py-5">
+        {/* Name, Middle Name, PhoneNumber and Surname in One Line */}
+            <div className="flex flex-col flex-1">
+              <label className="font-medium" htmlFor="name">Project Name</label>
+              <input
+                name="Project"
+                id="Project"
+                type="text"
+                className="border rounded p-2"
+                placeholder="Enter your Project Name"
+                value={ProjectDetails.Project}
+                onChange={personalProjectsMethod}
+                style={{ border: `1px solid ${borderColor}` }}
+                onFocus={()=>{setBorderColor('blue')}} 
+                onBlur={()=>{setBorderColor('black')}} 
+                required
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label className="font-medium" htmlFor="summary">Summary</label>
+              <textarea
+                name="summary"
+                id="summary"
+                value={ProjectDetails.summary}
+                onChange={personalProjectsMethod}
+                className="border rounded p-2 resize-none h-24"
+                placeholder="Enter a brief summary"
+                style={{ border: `1px solid ${borderColor}` }}
+                onFocus={()=>{setBorderColor('blue')}} 
+                onBlur={()=>{setBorderColor('black')}} 
+                required
+              ></textarea>
+            </div>
+
+          <div className="w-full mt-4">
+            <h3 className="font-medium">Project:</h3>
+            <ul className="list-disc pl-6">
+              {Project.map((Project, index) => (
+                <li key={index}>{Project.Project} -- {Project.summary}</li> // Display the skills
+              ))}
+            </ul>
+          </div>
+
+        {/* Submit Button */}
+        <div className="flex flex-wrap gap-4">
+          <button
+              type='button'
+              onClick={addProject} // Add the skill to the array
               className="bg-blue-500 text-white font-medium py-2 px-4 rounded hover:bg-blue-600"
             >
             Add
