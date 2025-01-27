@@ -96,6 +96,10 @@ const Editor = () => {
   };
 
   useEffect(() => {
+    console.log('Details updated:', Details);
+    console.log('skills updated:', skills);
+    console.log('Experience updated:', Experience);
+    console.log('Education updated:', Education);
     console.log('Project updated:', Project);
   }, [Details, skills, Experience , Education, Project]);
 
