@@ -3,19 +3,40 @@ import {React, useState, useEffect} from 'react';
 const Editor = () => {
   
   const [borderColor, setBorderColor] = useState('black'); // Default border color
-  const [personalDetails, setPersonalDetails] = useState({});
+  const [personalDetails, setPersonalDetails] = useState({
+    address : "",
+    email : "",
+    github : "",
+    linkedin : "",
+    middle : "",
+    name : "",
+    phone : "",
+    summary : "",
+    surname : "",
+});
   const [Details, setDetails] = useState([]); // Default border color
 
   const [skills, setSkills] = useState([]); // Default border color
   const [currentSkill, setCurrentSkill] = useState('');
 
-  const [ExperienceDetails, setExperienceDetails] = useState({});
+  const [ExperienceDetails, setExperienceDetails] = useState({
+    Company : "",
+    Joining : "",
+    Position : "",
+    Relieving : "",
+    summary : "",
+});
   const [Experience, setExperience] = useState([]); // Default border color
 
-  const [EducationDetails, setEducationDetails] = useState({});
+  const [EducationDetails, setEducationDetails] = useState({
+    College :"",
+    Degree :"",
+    Joining :"",
+    Relieving :"",
+    });
   const [Education, setEducation] = useState([]); // Default border color
 
-  const [ProjectDetails, setProjectDetails] = useState({});
+  const [ProjectDetails, setProjectDetails] = useState({Project : "", summary : ""});
   const [Project, setProject] = useState([]); // Default border color
 
   
@@ -75,8 +96,8 @@ const Editor = () => {
   };
 
   useEffect(() => {
-    console.log('Skills updated:', Project);
-  }, [skills, Experience, Details, Education, Project]);
+    console.log('Project updated:', Project);
+  }, [Details, skills, Experience , Education, Project]);
 
   return (
     <div className='font-serif h-[100%] p-2 mx-2 my-2 bg-white border shadow'>
@@ -103,7 +124,7 @@ const Editor = () => {
           </div>
 
           <div className="flex flex-col flex-1">
-            <label className="font-medium" htmlFor="middle-name">Middle Name</label>
+            <label className="font-medium" htmlFor="middle">Middle Name</label>
             <input
               name="middle"
               id="middle"
@@ -318,7 +339,7 @@ const Editor = () => {
         {/* Name, Middle Name, PhoneNumber and Surname in One Line */}
           <div className="flex flex-wrap gap-4">
             <div className="flex flex-col flex-1">
-              <label className="font-medium" htmlFor="name">Position</label>
+              <label className="font-medium" htmlFor="Position">Position</label>
               <input
                 name="Position"
                 id="Position"
@@ -334,7 +355,7 @@ const Editor = () => {
               />
             </div>
             <div className="flex flex-col flex-1">
-              <label className="font-medium" htmlFor="name">Company Name</label>
+              <label className="font-medium" htmlFor="Company">Company Name</label>
               <input
                 name="Company"
                 id="Company"
@@ -350,7 +371,7 @@ const Editor = () => {
               />
             </div>
             <div className="flex flex-col flex-1">
-              <label className="font-medium" htmlFor="name">Joining Date</label>
+              <label className="font-medium" htmlFor="Joining">Joining Date</label>
               <input
                 name="Joining"
                 id="Joining"
@@ -366,7 +387,7 @@ const Editor = () => {
               />
             </div>
             <div className="flex flex-col flex-1">
-              <label className="font-medium" htmlFor="name">Relieving Date</label>
+              <label className="font-medium" htmlFor="Relieving">Relieving Date</label>
               <input
                 name="Relieving"
                 id="Relieving"
@@ -434,7 +455,7 @@ const Editor = () => {
         {/* Name, Middle Name, PhoneNumber and Surname in One Line */}
           <div className="flex flex-wrap gap-4">
             <div className="flex flex-col flex-1">
-              <label className="font-medium" htmlFor="name">College Name</label>
+              <label className="font-medium" htmlFor="College">College Name</label>
               <input
                 name="College"
                 id="College"
@@ -450,7 +471,7 @@ const Editor = () => {
               />
             </div>
             <div className="flex flex-col flex-1">
-              <label className="font-medium" htmlFor="name">Degree</label>
+              <label className="font-medium" htmlFor="Degree">Degree</label>
               <input
                 name="Degree"
                 id="Degree"
@@ -466,7 +487,7 @@ const Editor = () => {
               />
             </div>
             <div className="flex flex-col flex-1">
-              <label className="font-medium" htmlFor="name">Joining Date</label>
+              <label className="font-medium" htmlFor="Joining">Joining Date</label>
               <input
                 name="Joining"
                 id="Joining"
@@ -482,7 +503,7 @@ const Editor = () => {
               />
             </div>
             <div className="flex flex-col flex-1">
-              <label className="font-medium" htmlFor="name">Relieving Date</label>
+              <label className="font-medium" htmlFor="Relieving">Relieving Date</label>
               <input
                 name="Relieving"
                 id="Relieving"
@@ -533,7 +554,7 @@ const Editor = () => {
       <form className="flex flex-col gap-6 px-10 py-5">
         {/* Name, Middle Name, PhoneNumber and Surname in One Line */}
             <div className="flex flex-col flex-1">
-              <label className="font-medium" htmlFor="name">Project Name</label>
+              <label className="font-medium" htmlFor="Project">Project Name</label>
               <input
                 name="Project"
                 id="Project"
